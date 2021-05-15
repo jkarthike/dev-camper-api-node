@@ -12,8 +12,11 @@ dotenv.config({
 // Connect to Database
 connectDB();
 
+// Routers
 const bootcamps = require('./routes/bootcamps');
+const courses = require('./routes/courses');
 
+// Create an app with express
 const app = express();
 
 // Body Parser
@@ -26,11 +29,12 @@ if (process.env.NODE_ENV === 'development') {
 
 // Mount Routers
 app.use('/api/v1/bootcamps', bootcamps);
+app.use('/api/v1/courses', courses);
 
 app.use(errorHandler);
 
+// App runs in port 5000
 const PORT = process.env.PORT || 5000;
-
 const server = app.listen(PORT, () => {
     console.log(`Server running in ${process.env.NODE_ENV} on port ${PORT}!`);
 });
