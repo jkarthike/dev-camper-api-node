@@ -32,6 +32,7 @@ const importData = async () => {
         await Bootcamp.create(bootcamps);
         await Course.create(courses);
         console.log('Data imported ...');
+        process.exit();
     } catch (err) {
         console.error('Data not imported', err);
     }
@@ -43,6 +44,7 @@ const deleteData = async () => {
         await Bootcamp.deleteMany();
         await Course.deleteMany();
         console.log('Data deleted ...');
+        process.exit();
     } catch (err) {
         console.error('Data not deleted', err);
     }
