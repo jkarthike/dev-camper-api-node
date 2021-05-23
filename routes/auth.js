@@ -8,11 +8,13 @@ const {
     resetPassword,
     updateUserDetails,
     updatePassword,
+    logout,
 } = require('../controllers/auth');
 const { protect } = require('../middleware/auth');
 
 router.post('/register', register);
 router.post('/login', login);
+router.get('/logout', logout);
 router.get('/me', protect, getMe);
 router.put('/updateUserDetails', protect, updateUserDetails);
 router.put('/updatePassword', protect, updatePassword);
